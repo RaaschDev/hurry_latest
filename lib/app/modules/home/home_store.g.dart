@@ -24,10 +24,26 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
+  final _$mEventListAtom = Atom(name: 'HomeStoreBase.mEventList');
+
+  @override
+  ObservableList<EventModel> get mEventList {
+    _$mEventListAtom.reportRead();
+    return super.mEventList;
+  }
+
+  @override
+  set mEventList(ObservableList<EventModel> value) {
+    _$mEventListAtom.reportWrite(value, super.mEventList, () {
+      super.mEventList = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-eventList: ${eventList}
+eventList: ${eventList},
+mEventList: ${mEventList}
     ''';
   }
 }

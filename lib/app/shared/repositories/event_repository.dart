@@ -21,4 +21,21 @@ class EventRepository {
     }
     return eventList;
   }
+
+  Future<List<EventModel>> getMEvent(id) async {
+    var response = await http.get(Constants.mEventUrl(id));
+    List<EventModel> eventList = <EventModel>[];
+    try {
+      if (response.statusCode == 200) {
+        print(response.statusCode);
+        var dec = json.decode(response.body)['results'] as List;
+        dec.forEach((element) {
+          eventList.add(EventModel.fromJson(element['event']));
+        });
+      }
+    } catch (e) {
+      print(e);
+    }
+    return eventList;
+  }
 }

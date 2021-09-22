@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:themes/theme/app_colors.dart';
 import 'package:themes/theme/app_text.dart';
+import 'package:themes/themes.dart';
 
 class ConsumableCard extends StatelessWidget {
   final String text;
   final String image;
   final String price;
-  const ConsumableCard({
-    Key? key,
-    required this.text,
-    required this.image,
-    required this.price,
-  }) : super(key: key);
+  final String? stock;
+  const ConsumableCard({Key? key, required this.text, required this.image, required this.price, this.stock}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +36,14 @@ class ConsumableCard extends StatelessWidget {
                     price,
                     style: AppTextStyle.accentButtonTextStyle,
                   ),
+                  MaterialButton(
+                    onPressed: () {},
+                    color: AppColors.primaryColor,
+                    child: Text(
+                      'Adicionar',
+                      style: AppTextStyle.accentButtonTextStyle,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -55,7 +60,7 @@ class ConsumableCard extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
