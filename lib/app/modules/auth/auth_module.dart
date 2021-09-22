@@ -1,13 +1,17 @@
-import 'package:hurry/app/modules/auth/auth_Page.dart';
-import 'package:hurry/app/modules/auth/auth_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:hurry/app/modules/auth/pages/login/auth_page.dart';
+import 'package:hurry/app/modules/auth/pages/register/register_page.dart';
+import 'package:hurry/app/modules/auth/pages/register/register_store.dart';
 
 class AuthModule extends Module {
   @override
-  final List<Bind> binds = [];
+  final List<Bind> binds = [
+    Bind.lazySingleton((i) => RegisterStore()),
+  ];
 
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => AuthPage()),
+    ChildRoute('/register', child: (_, args) => RegisterPage()),
   ];
 }

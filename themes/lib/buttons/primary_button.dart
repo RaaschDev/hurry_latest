@@ -18,9 +18,12 @@ class PrimaryButton extends StatelessWidget {
         text,
         style: AppTextStyle.accentButtonTextStyle,
       ),
-      height: 62,
+      height: 50,
       minWidth: double.maxFinite,
       color: AppColors.primaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
     );
   }
 }
