@@ -4,7 +4,8 @@ import 'package:themes/themes.dart';
 class ButtomText extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
-  const ButtomText({Key? key, required this.onPressed, required this.text}) : super(key: key);
+  const ButtomText({Key? key, required this.onPressed, required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -62,6 +62,7 @@ class ConsumablePage extends StatelessWidget {
                             text: consumable.description,
                             image: consumable.img,
                             price: 'R\$ ${consumable.price}',
+                            stock: '23',
                           );
                         }
                       },
