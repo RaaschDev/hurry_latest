@@ -38,7 +38,13 @@ class PaymentsPageState extends State<PaymentsPage> {
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  HeaderWidget(description: event.description, date: event.date, start: event.start, end: event.end, city: event.city, complement: event.complement),
+                  HeaderWidget(
+                      description: event.description,
+                      date: event.date,
+                      start: event.start,
+                      end: event.end,
+                      city: event.city,
+                      complement: event.complement),
                   Container(
                     height: sh * .25,
                     child: Column(

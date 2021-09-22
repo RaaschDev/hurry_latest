@@ -33,12 +33,12 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
           text: user.id != null ? 'Bem vindo ${user.firstName}' : 'Bem Vindo',
           image: user.img ?? '',
           onTap: () {
-            print('ok');
+            Modular.to.pushNamed('/perfil');
           },
         ),
         preferredSize: Size(
           double.maxFinite,
-          sh * .2,
+          sh * 0.4,
         ),
       ),
       body: Observer(
