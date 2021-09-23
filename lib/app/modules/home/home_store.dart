@@ -17,4 +17,16 @@ abstract class HomeStoreBase with Store {
       eventList.add(element);
     });
   }
+
+  @observable
+  ObservableList<EventModel> mEventList = <EventModel>[].asObservable();
+
+  Future<void> getMEvent(id) async {
+    List<EventModel> eventoList = await EventRepository().getMEvent(id);
+    mEventList.clear();
+    print(eventoList.length);
+    eventoList.forEach((element) {
+      mEventList.add(element);
+    });
+  }
 }

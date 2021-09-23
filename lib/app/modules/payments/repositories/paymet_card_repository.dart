@@ -63,7 +63,9 @@ class PaymentCardRepository {
 
       if (pay.statusCode == 201) {
         var event = await http.post(url3, headers: headers2, body: json.encode({"user": user, "event": eventId}));
-        Modular.to.pushNamedAndRemoveUntil('/home', (_) => false);
+        if (event.statusCode == 201) {
+          Modular.to.pushNamedAndRemoveUntil('/home', (_) => false);
+        }
       }
       print(payment.paymentResponse?.message);
       print(payment.amount?.value);

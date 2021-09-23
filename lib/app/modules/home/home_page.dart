@@ -26,7 +26,11 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
     var sh = MediaQuery.of(context).size.height;
     // var sw = MediaQuery.of(context).size.width;
     store.getEvent();
+
     UserModel user = auth.loged == true ? auth.user : UserModel();
+    if (user.id != 0) {
+      store.getMEvent(user.id.toString());
+    }
     return Scaffold(
       appBar: PreferredSize(
         child: CustomAppBar(
@@ -124,6 +128,44 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      auth.loged != false
+                          ? Container(
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Meus Eventos',
+                                        style: AppTextStyle.primaryTitleStyle,
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    height: sh * .2,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: store.mEventList.length,
+                                      itemBuilder: (context, index) {
+                                        EventModel event = store.mEventList[index];
+                                        return BaseCard(
+                                          image: event.image,
+                                          text: event.description,
+                                          onTap: () {
+                                            eventController.eventModel = event;
+                                            Modular.to.pushNamed('/events/my/events');
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          : SizedBox(),
                     ],
                   ),
                 ),
