@@ -260,6 +260,45 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
+  final _$imgFileAtom = Atom(name: '_RegisterStoreBase.imgFile');
+
+  @override
+  XFile? get imgFile {
+    _$imgFileAtom.reportRead();
+    return super.imgFile;
+  }
+
+  @override
+  set imgFile(XFile? value) {
+    _$imgFileAtom.reportWrite(value, super.imgFile, () {
+      super.imgFile = value;
+    });
+  }
+
+  final _$urlImgAtom = Atom(name: '_RegisterStoreBase.urlImg');
+
+  @override
+  String get urlImg {
+    _$urlImgAtom.reportRead();
+    return super.urlImg;
+  }
+
+  @override
+  set urlImg(String value) {
+    _$urlImgAtom.reportWrite(value, super.urlImg, () {
+      super.urlImg = value;
+    });
+  }
+
+  final _$salvaFotoFireStoreAsyncAction =
+      AsyncAction('_RegisterStoreBase.salvaFotoFireStore');
+
+  @override
+  Future<void> salvaFotoFireStore() {
+    return _$salvaFotoFireStoreAsyncAction
+        .run(() => super.salvaFotoFireStore());
+  }
+
   final _$_RegisterStoreBaseActionController =
       ActionController(name: '_RegisterStoreBase');
 
@@ -336,7 +375,9 @@ emailFocus: ${emailFocus},
 celularFocus: ${celularFocus},
 dataNascimentoFocus: ${dataNascimentoFocus},
 senhaFocus: ${senhaFocus},
-repetirSenhaFocus: ${repetirSenhaFocus}
+repetirSenhaFocus: ${repetirSenhaFocus},
+imgFile: ${imgFile},
+urlImg: ${urlImg}
     ''';
   }
 }

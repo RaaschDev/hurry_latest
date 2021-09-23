@@ -41,16 +41,13 @@ class Input extends StatelessWidget {
       width: width,
       height: 50,
       //70% da largura da tela
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 3,
-              color: Colors.black45,
-              offset: Offset(2, 2),
-            )
-          ]),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: [
+        BoxShadow(
+          blurRadius: 3,
+          color: Colors.black45,
+          offset: Offset(2, 2),
+        )
+      ]),
       child: Row(
         children: [
           Expanded(
@@ -58,10 +55,7 @@ class Input extends StatelessWidget {
             inputFormatters: mask,
             focusNode: foco,
             controller: controller,
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: label,
-                hintStyle: GoogleFonts.abel()),
+            decoration: InputDecoration(border: InputBorder.none, hintText: label, hintStyle: GoogleFonts.abel()),
             keyboardType: typekey,
             obscureText: obscure,
           )),

@@ -38,9 +38,7 @@ class AuthPageState extends State<AuthPage> {
                       height: 220,
                       width: 250,
                       decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/img/hurry_logo.png'),
-                            fit: BoxFit.fitWidth),
+                        image: DecorationImage(image: AssetImage('assets/img/hurry_logo.png'), fit: BoxFit.fitWidth),
                       ),
                     ),
                     Input(
@@ -50,7 +48,7 @@ class AuthPageState extends State<AuthPage> {
                       label: 'Email',
                       title: 'Email',
                       controller: emailController,
-                      obscure: true,
+                      obscure: false,
                       hint: 'Email',
                     ),
                     SizedBox(
@@ -71,8 +69,7 @@ class AuthPageState extends State<AuthPage> {
                     ),
                     PrimaryButton(
                       onPressed: () {
-                        store.login(
-                            passwordController.text, emailController.text);
+                        store.login(passwordController.text, emailController.text);
                       },
                       text: 'ENTRAR',
                     ),
